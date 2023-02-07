@@ -18,7 +18,7 @@ let allProducts = [];
 
 function Products(name, fileExtension = 'jpg') {
   this.name = name;
-  this.src = `images/${name}.${fileExtension}`;
+  this.src = `img/${name}.${fileExtension}`;
   this.imageShown = 0;
   this.likes = 0;
 }
@@ -30,18 +30,18 @@ let boots = new Products('boots');
 let breakfast = new Products('breakfast');
 let bubblegum = new Products('bubblegum');
 let chair = new Products('chair');
-let monster = new Products('monster');
-let dogduck = new Products('dogduck');
+let monster = new Products('cthulhu');
+let dogduck = new Products('dog-duck');
 let dragon = new Products('dragon');
 let pen = new Products('pen');
-let petsweep = new Products('petsweep');
+let petsweep = new Products('pet-sweep');
 let scissors = new Products('scissors');
 let shark = new Products('shark');
-let childsweep = new Products('childsweep', 'png');
-let snuggie = new Products('snuggie');
+let childsweep = new Products('sweep', 'png');
+let snuggie = new Products('tauntaun');
 let unicorn = new Products('unicorn');
-let watercan = new Products('watercan');
-let wineglass = new Products('wineglass');
+let watercan = new Products('water-can');
+let wineglass = new Products('wine-glass');
 
 allProducts = [
   bag,
@@ -82,12 +82,12 @@ function renderProducts() {
    else if (product1 === product3 || product2 === product3){
     product3 = selectRandomImage();
     }
-  product1.src = allProducts[product1].src;
-  product2.src = allProducts[product2].src;
-  product3.src = allProducts[product3].src;
-  product1.alt = allProducts[product1].name;
-  product2.alt = allProducts[product2].name;
-  product3.alt = allProducts[product3].name;
+  image1.src = allProducts[product1].src;
+  image2.src = allProducts[product2].src;
+  image3.src = allProducts[product3].src;
+  image1.alt = allProducts[product1].name;
+  image2.alt = allProducts[product2].name;
+  image3.alt = allProducts[product3].name;
 
   allProducts[product1].imageShown++;
   allProducts[product2].imageShown++;
