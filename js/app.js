@@ -16,6 +16,7 @@ let numberOfMatches = 0;
 let numberOfMatchesAllowed = 25;
 
 let allProducts = [];
+let indexArray = [];
 
 function Products(name, fileExtension = "jpg") {
   this.name = name;
@@ -72,17 +73,22 @@ function selectRandomImage() {
 }
 
 function renderProducts() {
-  let product1 = selectRandomImage();
-  let product2 = selectRandomImage();
-  let product3 = selectRandomImage();
-  console.log(product1, product2, product3);
+  // let product1 = selectRandomImage();
+  // let product2 = selectRandomImage();
+  // let product3 = selectRandomImage();
+  // console.log(product1, product2, product3);
 
-  while (product1 === product2) {
-    product1 = selectRandomImage();
+  while (indexArray.length < 6) {
+   let ranProduct = selectRandomImage();
+   console.log(ranProduct);
+   if (!indexArray.includes(ranProduct)) {
+    indexArray.push(ranProduct);
+   }
   }
-  while (product2 === product3 || product1 === product3) {
-    product3 = selectRandomImage();
-  }
+  let product1 = indexArray.shift();
+  let product2 = indexArray.shift();
+  let product3 = indexArray.shift();
+
   image1.src = allProducts[product1].src;
   image2.src = allProducts[product2].src;
   image3.src = allProducts[product3].src;
@@ -95,17 +101,17 @@ function renderProducts() {
   allProducts[product3].imageShown++;
 }
 
-function renderTotals() {
-  let results = document.querySelector("ul");
-  console.log(allProducts);
-  for (let i = 0; i < allProducts.length; i++) {
-    let li = document.createElement("li");
+// function renderTotals() {
+//   let results = document.querySelector("ul");
+//   console.log(allProducts);
+//   for (let i = 0; i < allProducts.length; i++) {
+//     let li = document.createElement("li");
 
-    li.textContent = `${allProducts[i].name} had ${allProducts[i].likes}likes and was shown this many times: ${allProducts[i].imageShown} times`;
+//     li.textContent = `${allProducts[i].name} had ${allProducts[i].likes}likes and was shown this many times: ${allProducts[i].imageShown} times`;
 
-    results.appendChild(li);
-  }
-}
+//     results.appendChild(li);
+//   }
+// }
 
 function handleClick(event) {
   let clickedProduct = event.target.alt;
@@ -122,8 +128,32 @@ function handleClick(event) {
     console.log(numberOfMatches);
   } else {
     myContainer.removeEventListener("click", handleClick);
-    myButton.addEventListener("click", renderTotals);
+    //myButton.addEventListener("click", renderTotals);
+    console.log(allProducts);
+    renderChart();
   }
 }
 renderProducts();
 myContainer.addEventListener("click", handleClick);
+
+function showchart() {
+  let productLikes = 0;
+  let productNames = 0;
+  let productViews = 0;
+
+  for (let i = 0; i < allProducts.length; i++) {
+    productLikes.push(allProducts[i].likes);
+    productNames.push(allProducts[i].name);
+    productViews.push(allProducts[i].imageShown);
+}
+
+const ctx = document.getElementById('productChart');
+
+let configure = {
+  type: 'bar',
+  data: {
+    
+  }
+}
+
+}
