@@ -1,25 +1,23 @@
-* {
-  box-sizing: border-box;
-}
-
-body,
-html {
+body, html {
   height: 100vh;
 }
 
 body {
   background: linear-gradient(45deg, rgb(125, 201, 200), rgb(240, 100, 30));
   background-repeat: no-repeat;
-  margin: 0;
+  background-position: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  column-gap: 40px;
+  text-align: center;
 }
 
 h1 {
   grid-area: 1 / 1 / 2 / 5;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .myContainer {
@@ -34,6 +32,28 @@ nav {
   grid-area: 4 / 2 / 6 / 5;
 }
 
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  grid-area: 6 / 1 / 7 / 5;
+}
+
+li {
+  height: 60px;
+  width: 200px;
+  border: 2px solid white;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 
 
 section {
@@ -43,12 +63,38 @@ section {
 }
 
 img {
-  width: 250px;
-  height: 250px;
+  width: 225px;
+  height: 225px;
+  margin: 10px;
 }
 
+.picbuttoncontainer {
+  display: flex;
+  flex-direction: column;
+}
 
 footer {
   height: 50px;
   background-color: darkred;
 }
+
+img:first-of-type:hover {
+  height: 200px;
+  width:  200px;
+  border: 3px solid red;
+  transition: ease-in-out 0.25s;
+}
+
+img:nth-of-type(2):hover {
+  height: 200px;
+  width:  200px;
+  border: 3px solid red;
+  transition: ease-in-out 0.25s;
+}
+
+img:nth-of-type(3):hover {
+  height: 200px;
+  width:  200px;
+  border: 3px solid red;
+  transition: ease-in-out 0.25s;
+ }
