@@ -150,7 +150,7 @@ function showChart() {
   let config = {
     type: 'bar',
     data: {
-      label: productNames,
+      labels: productNames,
       datasets: [
         {
           label: "# of Likes",
@@ -158,20 +158,11 @@ function showChart() {
           borderWidth: 2,
           backgroundColor: 'red',
           borderColor: 'rgb(255, 125, 255)',
-          // borderWidth: 1
-          // backgroundColor: [
-          //   "rgb(51, 120, 88)",
-          //   "rgb(51, 70, 88)",
-          //   "rgb(136, 141, 81)",
-          //   "rgb(212, 111, 81)",
-          // ],
+          
         },
         {
           label: "# of Views",
           data: productViews,
-          // backgroundColor: 'rgb(51, 120, 255)',
-          // borderColor: 'rgb(255, 125, 255)',
-           borderWidth: 1,
         },
       ],
     },
