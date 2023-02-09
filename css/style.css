@@ -1,0 +1,87 @@
+body,
+html {
+  height: 100vh;
+  width: auto;
+}
+
+body {
+  background: linear-gradient(45deg, rgb(125, 201, 200), rgb(240, 100, 30));
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  text-align: center;
+}
+
+
+h1 {
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.nav {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.productChart {
+  grid-area: 4 / 1 / 5 / 4; 
+  width: 100px;
+  height: 20px;
+}
+
+ main-container {
+  grid-area: 2 / 2 / 4 / 4;
+} 
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  height: 60px;
+  width: 200px;
+  border: 2px solid white;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+img {
+  width: 225px;
+  height: 225px;
+  margin: 10px;
+}
+
+img:first-of-type:hover {
+  height: 200px;
+  width: 200px;
+  border: 3px solid red;
+  transition: ease-in-out 0.25s;
+}
+
+img:nth-of-type(2):hover {
+  height: 200px;
+  width: 200px;
+  border: 3px solid red;
+  transition: ease-in-out 0.25s;
+}
+
+img:nth-of-type(3):hover {
+  height: 200px;
+  width: 200px;
+  border: 3px solid red;
+  transition: ease-in-out 0.25s;
+}
