@@ -25,6 +25,7 @@ function Products(name, fileExtension = "jpg") {
   this.likes = 0;
 }
 
+if (!localStorage.getItem('allProducts')) {
 let bag = new Products("bag");
 let banana = new Products("banana");
 let bathroom = new Products("bathroom");
@@ -67,6 +68,15 @@ allProducts = [
   wineglass
 ];
 
+} else {
+  let data = localStorage.getItem('allProducts');
+  allProducts = JSON.parse(data);
+}
+
+function storeProduct() {
+  let stringifiedItems = JSON.stringify(allProducts);
+  localStorage.setItem('allProducts', stringifiedItems);
+}
 
 function selectRandomImage() {
   return Math.floor(Math.random() * allProducts.length);
