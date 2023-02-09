@@ -13,7 +13,7 @@ let image2 = document.querySelector("section img:nth-child(2)");
 let image3 = document.querySelector("section img:nth-child(3)");
 
 let numberOfMatches = 0;
-let numberOfMatchesAllowed = 25;
+let numberOfMatchesAllowed = 25; 
 
 let allProducts = [];
 let indexArray = [];
@@ -64,9 +64,9 @@ allProducts = [
   snuggie,
   unicorn,
   watercan,
-  wineglass,
+  wineglass
 ];
-console.log(allProducts);
+
 
 function selectRandomImage() {
   return Math.floor(Math.random() * allProducts.length);
@@ -79,11 +79,11 @@ function renderProducts() {
   // console.log(product1, product2, product3);
 
   while (indexArray.length < 6) {
-   let ranProduct = selectRandomImage();
-   console.log(ranProduct);
-   if (!indexArray.includes(ranProduct)) {
-    indexArray.push(ranProduct);
-   }
+    let ranProduct = selectRandomImage();
+    
+    if (!indexArray.includes(ranProduct)) {
+      indexArray.push(ranProduct);
+    }
   }
   let product1 = indexArray.shift();
   let product2 = indexArray.shift();
@@ -115,7 +115,6 @@ function renderProducts() {
 
 function handleClick(event) {
   let clickedProduct = event.target.alt;
-  console.log(clickedProduct);
   for (let i = 0; i < allProducts.length; i++) {
     if (allProducts[i].name === clickedProduct) {
       allProducts[i].likes++;
@@ -125,35 +124,67 @@ function handleClick(event) {
   if (numberOfMatches < numberOfMatchesAllowed) {
     numberOfMatches++;
     renderProducts();
-    console.log(numberOfMatches);
+
   } else {
     myContainer.removeEventListener("click", handleClick);
     //myButton.addEventListener("click", renderTotals);
-    console.log(allProducts);
-    renderChart();
+    showChart();
   }
 }
 renderProducts();
 myContainer.addEventListener("click", handleClick);
 
-function showchart() {
-  let productLikes = 0;
-  let productNames = 0;
-  let productViews = 0;
+function showChart() {
+  let productLikes = [];
+  let productNames = [];
+  let productViews = [];
 
   for (let i = 0; i < allProducts.length; i++) {
     productLikes.push(allProducts[i].likes);
     productNames.push(allProducts[i].name);
     productViews.push(allProducts[i].imageShown);
-}
-
-const ctx = document.getElementById('productChart');
-
-let configure = {
-  type: 'bar',
-  data: {
-    
   }
-}
+  console.log(productLikes);
+  console.log(productViews);
 
+  let config = {
+    type: 'bar',
+    data: {
+      label: productNames,
+      datasets: [
+        {
+          label: "# of Likes",
+          data: productLikes,
+          borderWidth: 2,
+          backgroundColor: 'red',
+          borderColor: 'rgb(255, 125, 255)',
+          // borderWidth: 1
+          // backgroundColor: [
+          //   "rgb(51, 120, 88)",
+          //   "rgb(51, 70, 88)",
+          //   "rgb(136, 141, 81)",
+          //   "rgb(212, 111, 81)",
+          // ],
+        },
+        {
+          label: "# of Views",
+          data: productViews,
+          // backgroundColor: 'rgb(51, 120, 255)',
+          // borderColor: 'rgb(255, 125, 255)',
+           borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+            beginAtZero: true
+
+        }
+      }
+    }
+  };
+  let ctx = document.getElementById("productChart").getContext('2d');
+  console.log(ctx);
+  new Chart(ctx, config);
 }
