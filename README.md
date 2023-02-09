@@ -11,8 +11,8 @@ Chart.js is the JavaScript library being used to implement the chart UI.
 This project is split into 3 tasks/labs.
 
 So far I collaborated with:
-* [Miranda Lu](https://github.com/mirandalu2020)
-* [Arturo Valadez](https://github.com/Arturovaladez1)
-* [Michael Dulin](https://github.com/MichaelDulin)
+* [Miranda Lu](https://github.com/mirandalu2020) - Assisted with debugging
+* [Arturo Valadez](https://github.com/Arturovaladez1) - Assisted with storage functionality
+* [Michael Dulin](https://github.com/MichaelDulin) - Assisted with CSS
 
 I plan on improving the UI of the entire page with react.js in the near future and creating a more pleasing aesthetic to the entire page by improving the color scheme and adobe fonts.
