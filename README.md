@@ -1,4 +1,4 @@
-# lab11 - Odd Duck Products
+# lab11, 12, 13, and 14 - Odd Duck Products
 
 In this project we're creating a survey for a product company that wants its employees to vote for their favorite items. The user gets 25 choices to choose their favorite products as they render on to the screen in groups of 3. Everytime the user clicks on the picture of the product they like best out of the group, they're instantly prompted with another set of 3, some items recurring throughout the 25 rounds they get.
 
