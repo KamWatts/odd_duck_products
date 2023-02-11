@@ -1,6 +1,11 @@
 /** @format */
 
-"use strict";
+"use strict"
+
+// Convert objects to and from JSON with JSON.stringify() and JSON.parse().
+// Save application state directly into local storage through localStorage.setItem().
+// Retrieve application state from local storage through localStorage.getItem().
+// Notes
 
 console.log("Hello There");
 // Global variables and DOM window:
@@ -25,7 +30,6 @@ function Products(name, fileExtension = "jpg") {
   this.likes = 0;
 }
 
-if (!localStorage.getItem('allProducts')) {
 let bag = new Products("bag");
 let banana = new Products("banana");
 let bathroom = new Products("bathroom");
@@ -68,11 +72,15 @@ allProducts = [
   wineglass
 ];
 
-} else {
+
+// Retrieves the products from the allProducts array and opens the data
+function getProducts () {
   let data = localStorage.getItem('allProducts');
   allProducts = JSON.parse(data);
-}
+  console.log(allProducts);
+  }
 
+  // turns the allProducts array into a string to save the data as an object in local storage
 function storeProduct() {
   let stringifiedItems = JSON.stringify(allProducts);
   localStorage.setItem('allProducts', stringifiedItems);
@@ -81,6 +89,7 @@ function storeProduct() {
 function selectRandomImage() {
   return Math.floor(Math.random() * allProducts.length);
 }
+getProducts(); // calls our getProducts function
 
 function renderProducts() {
   // let product1 = selectRandomImage();
@@ -111,18 +120,6 @@ function renderProducts() {
   allProducts[product3].imageShown++;
 }
 
-// function renderTotals() {
-//   let results = document.querySelector("ul");
-//   console.log(allProducts);
-//   for (let i = 0; i < allProducts.length; i++) {
-//     let li = document.createElement("li");
-
-//     li.textContent = `${allProducts[i].name} had ${allProducts[i].likes}likes and was shown this many times: ${allProducts[i].imageShown} times`;
-
-//     results.appendChild(li);
-//   }
-// }
-
 function handleClick(event) {
   let clickedProduct = event.target.alt;
   for (let i = 0; i < allProducts.length; i++) {
@@ -132,16 +129,15 @@ function handleClick(event) {
   }
 
   if (numberOfMatches < numberOfMatchesAllowed) {
-    numberOfMatches++;
     renderProducts();
-
+    numberOfMatches++;
   } else {
     myContainer.removeEventListener("click", handleClick);
     //myButton.addEventListener("click", renderTotals);
+    // renderProducts();
     showChart();
   }
 }
-renderProducts();
 myContainer.addEventListener("click", handleClick);
 
 function showChart() {
@@ -153,6 +149,7 @@ function showChart() {
     productLikes.push(allProducts[i].likes);
     productNames.push(allProducts[i].name);
     productViews.push(allProducts[i].imageShown);
+    storeProduct(); // Saves product likes and views into local storage for page refresh
   }
   console.log(productLikes);
   console.log(productViews);
@@ -189,3 +186,4 @@ function showChart() {
   console.log(ctx);
   new Chart(ctx, config);
 }
+storeProduct();
