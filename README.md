@@ -16,3 +16,5 @@ So far I collaborated with:
 * [Michael Dulin](https://github.com/MichaelDulin) - Assisted with CSS
 
 I plan on improving the UI of the entire page with react.js in the near future and creating a more pleasing aesthetic to the entire page by improving the color scheme and adobe fonts.
+
+[LightHouse Report](<img width="1781" alt="lighthouse screenshot" src="https://user-images.githubusercontent.com/71164703/218285049-ac3c995b-6d69-4250-9f17-daad8146e489.png">)
