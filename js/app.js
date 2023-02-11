@@ -92,10 +92,6 @@ function selectRandomImage() {
 getProducts(); // calls our getProducts function
 
 function renderProducts() {
-  // let product1 = selectRandomImage();
-  // let product2 = selectRandomImage();
-  // let product3 = selectRandomImage();
-  // console.log(product1, product2, product3);
 
   while (indexArray.length < 6) {
     let ranProduct = selectRandomImage();
@@ -186,4 +182,5 @@ function showChart() {
   console.log(ctx);
   new Chart(ctx, config);
 }
+renderProducts();
 storeProduct();
