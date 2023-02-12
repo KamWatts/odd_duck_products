@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background: linear-gradient(45deg, rgb(125, 201, 200), rgb(240, 100, 30));
+  background: #369090;
   background-repeat: no-repeat;
   background-position: center;
   display: grid;
@@ -19,6 +19,11 @@ h1 {
   grid-area: 1 / 1 / 2 / 4;
 }
 
+ul {
+  padding-left: 0;
+  margin-left: 0;
+  display: flex;
+}
 .nav {
   grid-area: 1 / 1 / 3 / 2;
 }
@@ -43,15 +48,26 @@ h1 {
 li {
   height: 60px;
   width: 200px;
-  border: 2px solid white;
   list-style: none;
+  margin: 5px;
+  border: 1px solid transparent;
+}
+
+a:hover {
+  color: #EDE700;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(0);
+  cursor: pointer;
 }
 
 a {
   text-decoration: none;
+  color: #0F3446;
 }
 
-
+h1 {
+  color: #0C1C29;
+}
 
 section {
   display: flex;
@@ -66,22 +82,25 @@ img {
 }
 
 img:first-of-type:hover {
-  height: 200px;
-  width: 200px;
+  height: 170px;
+  width: 170px;
   border: 3px solid red;
+  cursor: pointer;
   transition: ease-in-out 0.25s;
 }
 
 img:nth-of-type(2):hover {
-  height: 200px;
-  width: 200px;
+  height: 170px;
+  width: 170px;
   border: 3px solid red;
+  cursor: pointer;
   transition: ease-in-out 0.25s;
 }
 
 img:nth-of-type(3):hover {
-  height: 200px;
-  width: 200px;
+  height: 170px;
+  width: 170px;
   border: 3px solid red;
+  cursor: pointer;
   transition: ease-in-out 0.25s;
 }
