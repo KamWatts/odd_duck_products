@@ -132,6 +132,9 @@ function handleClick(event) {
     if (allProducts[i].name === clickedProduct) {
       allProducts[i].likes++;
     }
+    if (!clickedProduct) {
+      alert('Please click on an image to submit your vote');
+    }
   }
   // keeps track of the maximum number of attempts in relation to the matches. Keeps track of how many times a photo is matched (picked more than once)
   if (numberOfMatches < numberOfMatchesAllowed) {
